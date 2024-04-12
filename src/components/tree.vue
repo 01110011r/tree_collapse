@@ -1,6 +1,6 @@
 
 <template>
-  <draggable class="drag-area" tag="div" :list="nodes">
+  <draggable class="dragArea" tag="div" :list="nodes">
     <div
     v-for="node in nodes"
     :key="node.name"
@@ -12,9 +12,9 @@
       <span class="type">&#9671;</span>
       <span>{{node.name}}</span>
       <Tree v-if="isExpanded(node) && node.children"
-            :nodes="node.children"
-            :depth="depth + 1"
-            @onClick="(node) => $emit('onClick', node)"
+      :nodes="node.children"
+      :depth="depth + 1"
+      @onClick="(node) => $emit('onClick', node)"
             />
     </div>
   </draggable>
@@ -44,7 +44,7 @@ export default {
       if(!this.isExpanded(node)){
         this.expanded.push(node);
       } else {
-        this.expanded.splice(this.expanded.insexOf(node));
+        this.expanded.splice(this.expanded.indexOf(node));
       }
     },
 
